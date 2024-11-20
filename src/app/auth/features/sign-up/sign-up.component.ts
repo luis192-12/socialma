@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
-  styles: ``
+  styles: ``,
 })
-export class SignUpComponent {
-
-}
+export default class SignUpComponent {}
