@@ -1,19 +1,40 @@
-import { Inject, Injectable } from '@angular/core';
-import { inject } from '@angular/core/testing';
-import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
-export interface User{
+import { inject, Injectable } from '@angular/core';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from '@angular/fire/auth';
+
+export interface User {
   email: string;
-  password:string;
+  password: string;
 }
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private _auth = Inject(Auth)
-  signUp(user: User) { 
+  private _auth = inject(Auth);
+
+  signUp(user: User) {
     return createUserWithEmailAndPassword(
       this._auth,
-    user.email,
-  user.password);
+      user.email,
+      user.password
+    );
+  }
+
+  signIn(user: User) {
+    return signInWithEmailAndPassword(this._auth, user.email, user.password);
+  }
+
+  signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+
+    // provider.setCustomParameters({ prompt: 'select_account' });
+
+    return signInWithPopup(this._auth, provider);
   }
 }
