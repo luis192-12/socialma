@@ -2,15 +2,19 @@ import { Routes } from '@angular/router';
 
 export default [
   {
-    path: 'task',
+    path: '',
     loadComponent: () => import('./task-list/task-list.component'),
   },
- // {
-   // path: 'new',
+  //{
+  //  path: 'new',
     //loadComponent: () => import('./task-form/task-form.component'),
   //},
   //{
-    //path: 'edit/:idTask',
+   // path: 'edit/:idTask',
     //loadComponent: () => import('./task-form/task-form.component'),
   //},
+  {
+    path: '**',
+    redirectTo: '/task',
+  },
 ] as Routes;

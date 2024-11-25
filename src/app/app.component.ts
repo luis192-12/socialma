@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { NgxSonnerToaster } from 'ngx-sonner';
+import { authStateService } from './shared/data-acces/auth-state.service';
 
 @Component({
   selector: 'app-root',
