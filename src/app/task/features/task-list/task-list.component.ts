@@ -8,8 +8,8 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './task-list.component.html',
- //providers: [TaskService],
+  //providers: [TaskService],
 })
 export default class TaskListComponent {
- //tasksService = inject(TaskService);
+  //tasksService = inject(TaskService);
 }
