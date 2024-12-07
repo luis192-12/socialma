@@ -27,14 +27,13 @@ const PATH = 'tasks';
 @Injectable()
 export class TaskService {
   private _firestore = inject(Firestore);
- // private _authState = inject(AuthStateService);
-private _authState = inject(authStateService)
+
+  private _authState = inject(authStateService);
   private _collection = collection(this._firestore, PATH);
   private _query = query(
     this._collection,
 
-
-    //where('userId', '==', this._authState.currentUser?.uid)
+    where('userId', '==', this._authState.currentUser?.uid)
   );
 
   loading = signal<boolean>(true);
@@ -55,7 +54,7 @@ private _authState = inject(authStateService)
   );
 
   constructor() {
-   // console.log(this._authState.currentUser);
+    console.log(this._authState.currentUser);
   }
 
   getTask(id: string) {
@@ -66,7 +65,7 @@ private _authState = inject(authStateService)
   create(task: TaskCreate) {
     return addDoc(this._collection, {
       ...task,
-     // userId: this._authState.currentUser?.uid,
+      userId: this._authState.currentUser?.uid,
     });
   }
 
@@ -74,7 +73,7 @@ private _authState = inject(authStateService)
     const docRef = doc(this._collection, id);
     return updateDoc(docRef, {
       ...task,
- //     userId: this._authState.currentUser?.uid,
+      userId: this._authState.currentUser?.uid,
     });
   }
 }
