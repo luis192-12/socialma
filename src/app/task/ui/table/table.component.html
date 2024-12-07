@@ -1,44 +1,61 @@
-<section class="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center justify-center">
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-2xl">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Perfil del Usuario</h2>
-      <div class="space-y-4">
-        <!-- Foto de Perfil -->
-        <div class="flex justify-center">
-          <img
-            src="https://via.placeholder.com/150" 
-            alt="Foto de perfil"
-            class="w-32 h-32 rounded-full object-cover border-2 border-green-600"
-          />
-        </div>
-  
-        <!-- Nombre -->
-        <div>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Nombre</p>
-          <p class="text-lg font-medium text-gray-900 dark:text-white">Juan Pérez</p>
-        </div>
-  
-        <!-- Carrera -->
-        <div>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Carrera</p>
-          <p class="text-lg font-medium text-gray-900 dark:text-white">Ingeniería de Sistemas</p>
-        </div>
-  
-        <!-- Año Académico -->
-        <div>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Año Académico</p>
-          <p class="text-lg font-medium text-gray-900 dark:text-white">3° Año</p>
-        </div>
-  
-        <!-- Botón para editar perfil -->
-        <div class="flex justify-center">
-          <a
-            href="/editar-perfil" 
-            class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-          >
-            Editar Perfil
+<div class="relative overflow-x-auto">
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">nombre</th>
+        <th scope="col" class="px-6 py-3">carrera</th>
+        <th scope="col" class="px-6 py-3">Completado</th>
+        <th scope="col" class="px-6 py-3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(task of tasks(); track task.id) {
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {{ task.id }}
+        </th>
+        <td class="px-6 py-4">{{ task.title }}</td>
+        <td class="px-6 py-4">
+          {{ task.completed ? "Completado" : "No completado" }}
+        </td>
+        <td class="px-6 py-4">
+          <a [routerLink]="['/tasks/edit/' + task.id]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-edit"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"
+              />
+              <path
+                d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"
+              />
+              <path d="M16 5l3 3" />
+            </svg>
           </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+        </td>
+      </tr>
+      } @empty {
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td colspan="4" class="px-6 py-4 text-center">No hay tareas</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

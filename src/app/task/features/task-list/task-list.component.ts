@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { TableComponent } from '../../ui/table/table.component';
 import { RouterLink } from '@angular/router';
-//import { TaskService } from '../../data-access/task.service';
+import { TaskService } from '../../data-access/task.service';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [RouterLink,TableComponent],
+  imports: [TableComponent, RouterLink],
   templateUrl: './task-list.component.html',
-  //providers: [TaskService],
+  providers: [TaskService],
 })
 export default class TaskListComponent {
-  //tasksService = inject(TaskService);
+  tasksService = inject(TaskService);
 }
