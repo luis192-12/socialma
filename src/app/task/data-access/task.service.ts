@@ -10,9 +10,9 @@ import {
   updateDoc,
   query,
   where,
+  
 } from '@angular/fire/firestore';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-//import { AuthStateService } from '../../shared/data-access/auth-state.service';
 import { authStateService } from '../../shared/data-acces/auth-state.service';
 export interface Task {
   id: string;
@@ -21,15 +21,12 @@ export interface Task {
 }
 
 export type TaskCreate = Omit<Task, 'id'>;
-
 const PATH = 'tasks';
-
 @Injectable()
 export class TaskService {
-  private _firestore = inject(Firestore);
-
+private _firestore = inject(Firestore);
   private _authState = inject(authStateService);
-  private _collection = collection(this._firestore, PATH);
+private _collection = collection(this._firestore,PATH);
   private _query = query(
     this._collection,
 
