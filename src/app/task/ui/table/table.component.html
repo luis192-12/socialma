@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      @for(task of tasks(); track task.id) {
+      @for(task of perfil(); track task.id) {
       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         <th
           scope="row"
@@ -24,9 +24,8 @@
         >
           {{ task.id }}
         </th>
-        <td class="px-6 py-4">{{ task.title }}</td>
+        <td class="px-6 py-4">{{ task.nombre }}</td>
         <td class="px-6 py-4">
-          {{ task.completed ? "Completado" : "No completado" }}
         </td>
         <td class="px-6 py-4">
           <a [routerLink]="['/tasks/edit/' + task.id]">

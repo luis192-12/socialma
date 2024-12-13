@@ -11,6 +11,6 @@ import { Task } from '../../data-access/task.service';
 
 })
 export class TableComponent {
-tasks = input.required<Task[]>();
+perfil = input.required<Task[]>();
 
 }

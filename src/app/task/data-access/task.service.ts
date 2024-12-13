@@ -16,12 +16,13 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 import { authStateService } from '../../shared/data-acces/auth-state.service';
 export interface Task {
   id: string;
-  title: string;
-  completed: boolean;
+  nombre: string;
+  carrera: string;
+  año: string;
 }
 
 export type TaskCreate = Omit<Task, 'id'>;
-const PATH = 'tasks';
+const PATH = 'perfil';
 @Injectable()
 export class TaskService {
 private _firestore = inject(Firestore);

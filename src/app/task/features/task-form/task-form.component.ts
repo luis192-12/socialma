@@ -22,8 +22,9 @@ export default class TaskFormComponent {
   idTask = input.required<string>();
 
   form = this._formBuilder.group({
-    title: this._formBuilder.control('', Validators.required),
-    completed: this._formBuilder.control(false, Validators.required),
+    nombre: this._formBuilder.control('', Validators.required),
+    carrera: this._formBuilder.control('',Validators.required),
+    año: this._formBuilder.control('',Validators.required),
   });
 
   constructor() {
@@ -40,10 +41,12 @@ export default class TaskFormComponent {
 
     try {
       this.loading.set(true);
-      const { title, completed } = this.form.value;
+      const { nombre, carrera, año} = this.form.value;
       const task: TaskCreate = {
-        title: title || '',
-        completed: !!completed,
+        nombre: nombre || '',
+        carrera: carrera || '',
+        año: año || '',
+      
       };
 
       const id = this.idTask();
@@ -54,8 +57,8 @@ export default class TaskFormComponent {
         await this._taskService.create(task);
       }
 
-    toast.success(`Tarea ${id ? 'actualizada' : 'creada'}  correctamente.`);
-      this._router.navigateByUrl('/tasks');
+    toast.success(`Perfil ${id ? 'actualizado' : 'creado'}  correctamente.`);
+      this._router.navigateByUrl('/task');
     } catch (error) {
       toast.success('Ocurrio un problema.');
     } finally {
