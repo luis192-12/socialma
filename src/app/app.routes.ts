@@ -9,12 +9,13 @@ export const routes: Routes = [
   },
   {
     canActivateChild: [privateGuard()],
-    path: 'task',
+    path: 'perfil',
    loadComponent: () => import('./shared/ui/layout-component'),
-    loadChildren: () => import('./task/features/task.routes'),
+
+    loadChildren: () => import('./perfil/features/perfil.routes')
   },
   {
     path: '**',
-    redirectTo: '/task',
+    redirectTo: '/perfil',
   },
 ];

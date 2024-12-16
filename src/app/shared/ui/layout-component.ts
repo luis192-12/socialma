@@ -11,7 +11,7 @@ import { authStateService } from '../data-acces/auth-state.service';
     <nav class="flex items-center justify-between h-full">
       <a 
         class="text-2xl font-bold text-gray-800 hover:text-gray-600" 
-        routerLink="/task"
+        routerLink="/perfil"
       >
         Socialma
       </a>
