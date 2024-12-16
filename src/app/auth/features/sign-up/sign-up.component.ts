@@ -72,7 +72,7 @@ export default class SignUpComponent {
     try {
       await this._authService.signInWithGoogle();
       toast.success('Bienvenido denuevo');
-      this._router.navigateByUrl('/tasks');
+      this._router.navigateByUrl('/perfil');
     } catch (error) {
       toast.error('Ocurrio un error');
     }

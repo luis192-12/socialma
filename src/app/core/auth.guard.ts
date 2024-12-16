@@ -29,7 +29,7 @@ export const privateGuard = (): CanActivateFn => {
       return authState.authState$.pipe(
         map((state) => {
           if (state) {
-            router.navigateByUrl('/tasks');
+            router.navigateByUrl('/perfil');
             return false;
           }
   
