@@ -65,7 +65,7 @@ idPerfil = input.required<string>();
   
   
  
-  toast.success(`Tarea ${id ? 'actualizada' : 'creada'}  correctamente.`)
+  toast.success(`perfil ${id ? 'actualizada' : 'creada'}  correctamente.`)
   this._Router.navigateByUrl('/perfil')
   
   }catch (error) {
