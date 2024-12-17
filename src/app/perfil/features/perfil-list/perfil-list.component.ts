@@ -2,7 +2,7 @@ import { Component,OnInit,inject,input } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { PerfilService, Perfil } from '../../data-access/perfil.service';
 import { PerfilComponent } from "../../ui/perfil/perfil.component";
-
+//import { PostComponent } from '../post/post.component';
 @Component({
   selector: 'app-perfil-list',
   standalone: true,

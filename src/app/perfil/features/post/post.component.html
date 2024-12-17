@@ -1,0 +1,62 @@
+<section class="mx-auto w-full max-w-screen-sm px-4">
+  <form class="space-y-4 md:space-y-6" [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label
+        for="titulo"
+        class="block mb-2 text-sm font-medium text-red-900 dark:text-white"
+        >Título</label
+      >
+      <input
+        type="text"
+        id="titulo"
+        formControlName="titulo"
+        class="bg-gray-50 border border-gray-300 text-red-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+      />
+      <div *NgIf="form.get('titulo')?.invalid && form.get('titulo')?.touched">
+        <small class="text-red-500">El título es obligatorio y no puede superar los 100 caracteres.</small>
+      </div>
+    </div>
+
+    <div>
+      <label
+        for="texto"
+        class="block mb-2 text-sm font-medium text-red-900 dark:text-white"
+        >Texto</label
+      >
+      <textarea
+        id="texto"
+        formControlName="texto"
+        rows="4"
+        class="bg-gray-50 border border-gray-300 text-red-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+      ></textarea>
+      <div *NgIf="form.get('texto')?.invalid && form.get('texto')?.touched">
+        <small class="text-red-500">El texto es obligatorio y no puede superar los 500 caracteres.</small>
+      </div>
+    </div>
+
+    <div>
+      <label
+        for="foto"
+        class="block mb-2 text-sm font-medium text-red-900 dark:text-white"
+        >URL de la Foto</label
+      >
+      <input
+        type="text"
+        id="foto"
+        formControlName="foto"
+        class="bg-gray-50 border border-gray-300 text-red-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+      />
+      <div *NgIf="form.get('foto')?.invalid && form.get('foto')?.touched">
+        <small class="text-red-500">La URL de la foto es obligatoria.</small>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5"
+      [disabled]="form.invalid"
+    >
+      Crear
+    </button>
+  </form>
+</section>

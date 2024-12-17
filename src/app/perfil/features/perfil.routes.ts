@@ -6,6 +6,8 @@ export default [
         loadComponent: () => import('./perfil-list/perfil-list.component'),
 
     },
+  
+
     {
         path: 'new',
         loadComponent: () => import('./perfil-form/perfil-form.component'),
@@ -13,7 +15,10 @@ export default [
     {
         path: 'edit/:idPerfil',
         loadComponent: () => import('./perfil-form/perfil-form.component'),
-    }
-
+    },
+    {
+        path: 'post',
+        loadComponent:() => import('./post/post.component'),
+    },
 
 ]as Routes;
